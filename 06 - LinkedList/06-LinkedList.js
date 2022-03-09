@@ -2,6 +2,7 @@ const { LinkedList, Node } = require("../estructuras")
   //agregar el metodo size al prototipo de LinkedList.
   // Este metodo deberia retornar la cantidad de elementos de la lista
   LinkedList.prototype.size=function(){
+    return this.len;
       
   }
 
@@ -14,7 +15,39 @@ const { LinkedList, Node } = require("../estructuras")
 // ACLARACIÓN: Se debe ordenar la lista original y no una nueva.
 LinkedList.prototype.orderList = function () {
     // Tu código aca:
-    
+ let array=[]
+    let current= this.head
+    while(current){
+      array.push(current.value);
+      current= current.next
+    }
+    array=array.sort((a,b)=>b-a)
+
+    this.head= null
+
+    //array.forEach(num=> this.add(num))
+
+    for(let num of array) this.add(num)
+
+    // if(this.size() <= 1)return this.head;
+    // var current = this.head; 
+    // var pivot = current;
+    //  var swap= true;
+ 
+    // while(swap){
+    //   swap= false
+    //   for(i = current;i < this.size();i = current.next){
+    //  if(current.next > current){
+    //    var aux = current;
+    //    current.next = current; 
+    //    current = aux;
+    //   current = current.next
+    //    swap = true;
+
+    //  }
+    //  } current = current.next
+    // }
+    //  return this.head;
   };
 
 
@@ -25,8 +58,29 @@ LinkedList.prototype.orderList = function () {
    
   // 1-->2-->3-->2.5-->4   2.5 pos=1  newnodo= 2.5-->4   curr=3   
 LinkedList.prototype.insert = function(data,pos) {
-	
+  if(this.len< pos) return this.add(data)
+
+  let newNode= new Node(data)
+  if(pos === 1){
+    newNode.next=this.head;
+    this.head= newNode
+  }else{
+    let current= this.head
+    while(pos>1){
+      pos--
+      current=current.next
+    }
+    newNode.next= current.next;
+    current.next=newNode    
+  }
+  this.len++
+
+
 }
+  
+
+	
+
   
 
 

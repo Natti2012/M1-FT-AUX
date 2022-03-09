@@ -50,6 +50,15 @@ function crearClaseLibro() {
       }
       return idiomas;
     }
+    /*opcion 2
+      let traducciones=[];
+        this.traducciones.forEach(element => {
+          traducciones.push(element.idioma)
+        });
+        return traducciones
+  
+      }
+    */
 
     getAlcance() {
       // El metodo debe retornar la cantidad de idiomas en la que esta traducido el libro.
@@ -65,6 +74,13 @@ function crearClaseLibro() {
 
       } return count;
     }
+    /*opcion 2
+       let idiomas=new
+        Set(this.getTraducciones())
+        return idiomas.size
+  
+      }
+    */
   }
 
   return Libro;

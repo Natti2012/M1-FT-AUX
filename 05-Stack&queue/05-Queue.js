@@ -20,6 +20,33 @@
 var controlAcces = function(queue, event){
     // Tu código aca:
 
+    let arr=[];
+    let access =[];
+    while(queue.size()){
+      let subject= queue.dequeue();
+      if(
+        subject.age>=18 &&
+        subject.ticket.event=== event &&
+        !access.includes(subject.ticket.number)
+        ){
+          access.push(subject.ticket.number)
+        arr.push(subject.fullname)
+      }
+    }
+    return arr
+  
+
+   /* var arr=[];
+    for(let i = 0; i < queue.size(); i++){
+        if(queue[i][age] >= 18 || queue[i][ticket].event !== event){
+          arr = arr.push(element);
+        }
+        else{queue.dequeue()}
+        
+      }
+    return arr;
+
+*/
   };
       
   

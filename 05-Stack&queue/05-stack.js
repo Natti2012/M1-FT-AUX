@@ -17,6 +17,42 @@ const { Stack, Queue } = require("../estructuras")
 
 function efectoEspejo(str){  
 //tu codigo aqui
+const reverse = new Stack()
+
+let temp = '';
+
+for (let i = 0; i < str.length; i++) {
+    if(str[i] === ' ') {
+        while(reverse.size() > 0){
+           temp += reverse.pop(); 
+        }
+        temp += str[i]
+    }  else {
+        reverse.push(str[i])
+    }
+}
+while(reverse.size() > 0) temp += reverse.pop(); 
+return temp
+
+
+
+/*
+var newStack = new Stack;
+
+var arr = []
+for(let i = str.length-1 ; i >= 0 ; i--){ // itere el string pasado por parametro de atras a adelante,
+newStack.push(str[i])                     //y en cada vuelta le iba pusheando str[i] al nuevo stack
+
+arr =  arr  + newStack.pop()
+};
+arr= arr.split(' ')
+for(let i =arr.length-1 ; i>=0; i--){
+ newStack.push(arr[i])}
+  
+return  newStack.array.join(' ');
+*/
+
+
 
 
 };
